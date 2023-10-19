@@ -47,10 +47,10 @@ class HumanPlayer(Player):
 
 class ReflectPlayer(Player):
     def move(self):
-        if self.their_move is None:
-            return random.choice(moves)
-        else:
+        if self.their_move is moves:
             return self.their_move
+        else:
+            return random.choice(moves)
 
 
 class CyclePlayer(Player):
@@ -114,7 +114,7 @@ class Game:
         rounds = ""
         while rounds == "":
             temp_rounds = input("Would you like to play a [s]ingle round "
-            "or a [f]ull game?\n").lower()
+                                "or a [f]ull game?\n").lower()
             if temp_rounds == 's':
                 rounds = 's'
             elif temp_rounds == 'f':
