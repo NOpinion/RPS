@@ -32,25 +32,23 @@ class RandomPlayer(Player):
 
 class HumanPlayer(Player):
     def move(self):
-        play_move = input("Rock, paper, scissors?\n").lower()
-        if play_move == "rock":
-            print("You played rock.")
-        elif play_move == "paper":
-            print("You played paper.")
-        elif play_move == "scissors":
-            print("You played scissors")
-        else:
-            print("Move unkown! Try again!\n")
-            self.move()
+        play_move = None
+        while (play_move == None):
+            temp_move = input("Rock, paper, scissors?\n").lower()
+            if temp_move in ('rock', 'paper', 'scissors'):
+                play_move = temp_move
+                print("You played " + play_move + ".")
+            else:
+                print("Move unkown! Try again!\n")
         return play_move
 
 
 class ReflectPlayer(Player):
     def move(self):
-        if self.their_move is moves:
-            return self.their_move
-        else:
+        if self.their_move is None:
             return random.choice(moves)
+        else:
+            return self.their_move
 
 
 class CyclePlayer(Player):
