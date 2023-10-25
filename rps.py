@@ -20,6 +20,7 @@ class Player:
     def learn(self, my_move, their_move):
         pass
 
+
 class AllRockPlayer(Player):
     pass
 
@@ -35,7 +36,7 @@ class RandomPlayer(Player):
 class HumanPlayer(Player):
     def move(self):
         play_move = None
-        while (play_move == None):
+        while play_move is None:
             temp_move = input("Rock, paper, scissors?\n").lower()
             if temp_move in ('rock', 'paper', 'scissors'):
                 play_move = temp_move
