@@ -23,12 +23,14 @@ class Player:
 class AllRockPlayer(Player):
     pass
 
+
 class RandomPlayer(Player):
     def learn(self, my_move, their_move):
         pass
 
     def move(self):
         return random.choice(moves)
+
 
 class HumanPlayer(Player):
     def move(self):
