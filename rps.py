@@ -18,17 +18,17 @@ class Player:
         return moves[0]
 
     def learn(self, my_move, their_move):
-        self.my_move = my_move
-        self.their_move = their_move
+        pass
 
+class AllRockPlayer(Player):
+    pass
 
 class RandomPlayer(Player):
-    def move(self):
-        return random.choice(moves)
-
     def learn(self, my_move, their_move):
         pass
 
+    def move(self):
+        return random.choice(moves)
 
 class HumanPlayer(Player):
     def move(self):
@@ -44,6 +44,9 @@ class HumanPlayer(Player):
 
 
 class ReflectPlayer(Player):
+    def learn(self, my_move, their_move):
+        self.their_move = their_move
+
     def move(self):
         if self.their_move is None:
             return random.choice(moves)
